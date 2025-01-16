@@ -1,0 +1,83 @@
+export default {
+  name: "product",
+  type: "document",
+  title: "Product",
+  fields: [
+    {
+      name: "name",
+      type: "string",
+      title: "Product Name",
+    },
+    {
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      options: {
+        source: "name",
+        maxLength: 200,
+      },
+    },
+    {
+      name: "description",
+      type: "text",
+      title: "Description",
+    },
+    {
+      name: "pricePerUnit",
+      type: "number",
+      title: "Price Per Unit",
+    },
+    {
+      name: "availableStock",
+      type: "number",
+      title: "Available Stock",
+    },
+    {
+      name: "minimumOrderQuantity",
+      type: "number",
+      title: "Minimum Order Quantity",
+    },
+    {
+      name: "categories",
+      type: "array",
+      title: "Categories",
+      of: [{ type: "reference", to: [{ type: "category" }] }],
+    },
+    {
+      name: "images",
+      type: "array",
+      title: "Product Images",
+      of: [{ type: "image" }],
+    },
+    {
+      name: "customizationOptions",
+      type: "object",
+      title: "Customization Options",
+      fields: [
+        {
+          name: "colors",
+          type: "array",
+          title: "Available Colors",
+          of: [{ type: "string" }],
+        },
+        {
+          name: "sizes",
+          type: "array",
+          title: "Available Sizes",
+          of: [{ type: "string" }],
+        },
+        {
+          name: "logos",
+          type: "boolean",
+          title: "Logo Customization Available",
+        },
+      ],
+    },
+    {
+      name: "featured",
+      type: "boolean",
+      title: "Featured Product",
+    },
+    
+  ],
+};
